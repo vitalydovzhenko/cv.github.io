@@ -1,5 +1,6 @@
 :root {
   --primary-color: #0CBC92;
+  --primary-opposite-color: #fff;
   --text-color: #fff;
   --text-color-dim: #3D3D3D;
   --body-background: #101010;
@@ -22,7 +23,21 @@
   -webkit-text-size-adjust: 100%;
 }
 
-@media (prefers-color-scheme: light) {}
+@media (prefers-color-scheme: light) {
+  :root {
+    --primary-color: #0CBC92;
+    --primary-opposite-color: #fff;
+    --text-color: #161616;
+    --text-color-dim: #bfbfbf;
+    --body-background: #fff;
+    --hero-background: #efefef;
+    --footer-background: #efefef;
+  }
+
+  .hero-gradient {
+    opacity: 0.5;
+  }
+}
 
 .__rise {
   z-index: 1;
@@ -31,6 +46,10 @@
 
 body {
   margin: 40px;
+}
+
+a {
+  color: var(--text-color);
 }
 
 .hero {
@@ -108,14 +127,14 @@ body {
   justify-content: center;
   height: 58px;
   width: 58px;
-  color: var(--text-color);
+  color: var(--primary-opposite-color);
   background-color: var(--primary-color);
   border-radius: 20px;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .hero-header-social a:hover {
-  background-color: var(--text-color);
+  background-color: var(--primary-opposite-color);
   color: var(--primary-color);
 }
 
@@ -132,6 +151,27 @@ body {
   overflow: hidden;
 }
 
+.hero-header-download:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--hero-background);
+  height: 21px;
+  border-radius: 0 20px 0 0;
+}
+
+.hero-header-download:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--body-background);
+  height: 21px;
+}
+
 .hero-header-download a {
   display: flex;
   flex-direction: column;
@@ -143,6 +183,7 @@ body {
   line-height: 1.3;
   border-radius: 0 0 0 20px;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-wrap: nowrap;
 }
 
 .hero-header-download:hover a {
@@ -216,13 +257,14 @@ body {
   overflow: hidden;
   display: inline-block;
   border-radius: 60px;
+  color: var(--primary-opposite-color);
 }
 
 .hero-primary-link a {
   display: inline-block;
   font-size: 20px;
   font-weight: bold;
-  color: var(--text-color);
+  color: var(--primary-opposite-color);
   background-color: var(--primary-color);
   border-radius: 60px;
   text-decoration: none;
