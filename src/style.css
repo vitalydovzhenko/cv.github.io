@@ -63,8 +63,14 @@ a {
 .hero-gradient {
   position: absolute;
   pointer-events: none;
-  bottom: calc(-1000px + var(--mouse-y, 0) / 5 * -1);
-  left: calc(-500px + var(--mouse-x, 0) / 10);
+  background-image: url(/images/toshkashadowblade.png);
+  background-repeat: no-repeat;
+  background-position: calc(-100px + var(--mouse-x, 0)) calc(100% + var(--mouse-y, 0));
+  background-size: contain;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   z-index: 0;
 }
 
@@ -482,8 +488,7 @@ a {
   }
 
   .hero-gradient {
-    bottom: -970px;
-    left: -920px;
+    background-position: 0 100%;
   }
 
   .hero-header-info {
